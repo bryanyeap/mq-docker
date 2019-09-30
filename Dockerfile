@@ -63,7 +63,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   # Recommended: Create the mqm user ID with a fixed UID and group, so that the file permissions work between different images
   && groupadd --system --gid 999 mqm \
   && useradd --system --uid 999 --gid mqm mqm \
-  && usermod -G mqm root \
+  && usermod -G mqm 999 \
   # Find directory containing .deb files
   && export DIR_DEB=$(find ${DIR_EXTRACT} -name "*.deb" -printf "%h\n" | sort -u | head -1) \
   # Find location of mqlicense.sh
